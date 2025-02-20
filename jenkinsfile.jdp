@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('pull'){
             steps {
-                git branch: 'main', url: 'https://github.com/guru6910/Frontend-CRM.git'
+                git branch: 'main', url: 'https://github.com/prathmeshkaral/FRONTEND.git'
             }
         }
         stage('build'){
@@ -14,7 +14,7 @@ pipeline {
         }
         stage('deploy'){
             steps {
-                withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'aws-cred', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+                withCredentials([aws(accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'AWS cred', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY')]) {
                 sh 'aws s3 cp --recursive /var/lib/jenkins/workspace/FRONTEND/dist/angular-frontend s3://cbz-frontend-b18/'
                 }
             }
